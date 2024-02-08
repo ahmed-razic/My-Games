@@ -8,6 +8,7 @@ public class BoatSwaying : MonoBehaviour
     private void Update()
     {
         StartCoroutine(BoatSway(true));
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
 
     public IEnumerator BoatSway(bool isSeaCalm)

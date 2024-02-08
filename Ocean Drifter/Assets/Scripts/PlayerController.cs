@@ -19,7 +19,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerRb.AddRelativeForce(force * Input.GetAxis("Vertical") * playerRb.transform.forward, ForceMode.Impulse);
-        playerRb.AddTorque(force * Input.GetAxis("Horizontal") * Vector3.up, ForceMode.Impulse);
+        playerRb.AddRelativeForce(force * Input.GetAxis("Vertical") * Vector3.forward);
+        playerRb.AddTorque(force * Input.GetAxis("Horizontal") * Vector3.up);
+
+
     }
 }
