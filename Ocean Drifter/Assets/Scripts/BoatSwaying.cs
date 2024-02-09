@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class BoatSwaying : MonoBehaviour
 {
-
-    private void Update()
-    {
-        StartCoroutine(BoatSway(true));
-    }
-
-    public IEnumerator BoatSway(bool isSeaCalm)
+    public IEnumerator Calm()
     {
         float timer = 0;
-        int maxAngle = 7;
+        int maxAngle = 5;
 
-        while (isSeaCalm)
+        while (true)
         {
             float angle = Mathf.Sin(timer) * maxAngle;
             transform.rotation = Quaternion.AngleAxis(angle, transform.forward);
@@ -23,8 +17,14 @@ public class BoatSwaying : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
+    }
 
-        while (!isSeaCalm)
+    public IEnumerator Hard()
+    {
+        float timer = 0;
+        int maxAngle = 7;
+
+        while (true)
         {
             float angle = Mathf.Sin(timer) * maxAngle;
             transform.rotation = Quaternion.AngleAxis(angle, transform.right);
