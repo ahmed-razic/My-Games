@@ -7,21 +7,40 @@ public class PlayerController : MonoBehaviour
 {
     public bool isDead;
     public bool isSeaCalm;
-    public float force = 1.0f;
-    private Rigidbody playerRb;
+    public float forwardSpeed = 30f;
+    public float rotateSpeed = 100.0f;
+    private float horizontalInput;
+    private float verticalInput;
+    private BoatSwaying bw;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = GetComponent<Rigidbody>();        
+        bw = GetComponent<BoatSwaying>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerRb.AddRelativeForce(force * Input.GetAxis("Vertical") * Vector3.forward);
-        playerRb.AddTorque(force * Input.GetAxis("Horizontal") * Vector3.up);
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
 
+        //transform.Translate(verticalInput * forwardSpeed * Time.deltaTime * transform.forward);  - This moves object translatory, looks aqward
+       
+        
+        if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
+        {
+            StartCoroutine(bw.BoatSway(true));
+        }
+        else
+        {
+            StopCoroutine(bw.BoatSway(true));
+            transform.position += verticalInput * forwardSpeed * Time.deltaTime * transform.forward; // This is much better
+            transform.Rotate(horizontalInput * rotateSpeed * Time.deltaTime * Vector3.up);
+        }
 
+        //playerRb.AddRelativeForce(force * Input.GetAxis("Vertical") * Vector3.forward * Time.deltaTime, ForceMode.VelocityChange);
+        //playerRb.AddTorque(force * Input.GetAxis("Horizontal") * Time.deltaTime * Vector3.up);
     }
 }

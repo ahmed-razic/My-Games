@@ -8,7 +8,6 @@ public class BoatSwaying : MonoBehaviour
     private void Update()
     {
         StartCoroutine(BoatSway(true));
-        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
 
     public IEnumerator BoatSway(bool isSeaCalm)
@@ -24,7 +23,7 @@ public class BoatSwaying : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-        
+
         while (!isSeaCalm)
         {
             float angle = Mathf.Sin(timer) * maxAngle;
@@ -33,5 +32,5 @@ public class BoatSwaying : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-    }  
+    }
 }
