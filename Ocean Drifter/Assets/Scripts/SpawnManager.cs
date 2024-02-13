@@ -8,10 +8,10 @@ public class SpawnManager : MonoBehaviour
     public List<GameObject> enemyRocksPrefabs;
     public List<GameObject> enemyShipsPrefabs;
 
-    float spawnDelay = 2f;
-    float spawnInterval = 3f;
-    int numberOfEnemyRocks = 0;
+    [SerializeField] float spawnInterval;
+    [SerializeField] int numberOfEnemyRocks = 0;
     int numberOfEnemyShips = 0;
+    int enemyWave;
 
     GameObject player;
     GameManager gameManager;
@@ -21,8 +21,11 @@ public class SpawnManager : MonoBehaviour
     {
         player = GameObject.Find("Player");
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        InvokeRepeating(nameof(SpawnEnemyRocks), spawnDelay, spawnInterval);
-        InvokeRepeating(nameof(SpawnEnemyShips), spawnDelay, spawnInterval);
+
+
+        //InvokeRepeating(nameof(SpawnEnemyRocks), spawnDelay, spawnInterval);
+        //InvokeRepeating(nameof(SpawnEnemyShips), spawnDelay, spawnInterval);
+        StartGame(1);
     }
 
     // Update is called once per frame
@@ -31,26 +34,69 @@ public class SpawnManager : MonoBehaviour
 
     }
 
-    void SpawnEnemyRocks()
+    public void StartGame(int difficulty)
     {
-        int randomIndex = Random.Range(0, enemyRocksPrefabs.Count);
-        Vector3 randomPosition = new(Random.Range(-200f, 200f), Random.Range(200f, 300f), player.transform.position.z + 400f);
-        if (gameManager.isGameRunning && numberOfEnemyRocks < 10)
+        StartCoroutine(SpawnEnemyRocks(difficulty));
+    }
+
+    IEnumerator SpawnEnemyRocks(int difficulty)
+    {
+        spawnInterval /= difficulty;
+        enemyWave = 1;
+
+        Debug.Log("Wave 1");
+        while (gameManager.isGameRunning && gameManager.level == GameManager.Levels.Level1)
         {
+            yield return new WaitForSeconds(spawnInterval);
+
+            int randomIndex = Random.Range(0, enemyRocksPrefabs.Count);
+            Vector3 randomPosition = new(Random.Range(-200f, 200f), Random.Range(200f, 300f), player.transform.position.z + 400f);
             Instantiate(enemyRocksPrefabs[randomIndex], randomPosition, enemyRocksPrefabs[randomIndex].transform.rotation);
-            numberOfEnemyShips++;
+            numberOfEnemyRocks++;
+            if (numberOfEnemyRocks == 10)
+            {
+                yield return new WaitForSeconds(5);
+                Debug.Log("Wave 2");
+                enemyWave = 2;
+            }
+            if (numberOfEnemyRocks == 20)
+            {
+                yield return new WaitForSeconds(5);
+                Debug.Log("End of Level 1");
+                gameManager.level = GameManager.Levels.Level2;
+                StopCoroutine(nameof(SpawnEnemyRocks));
+                StartCoroutine(SpawnEnemyShips(difficulty));
+            }
         }
     }
 
-    void SpawnEnemyShips()
+    IEnumerator SpawnEnemyShips(int difficulty)
     {
+        spawnInterval /= difficulty;
+        enemyWave = 1;
 
-        int randomIndex = Random.Range(0, enemyShipsPrefabs.Count);
-        Vector3 randomPosition = new(Random.Range(-200f, 200f), 0, player.transform.position.z + 400f);
-        if (gameManager.isGameRunning && numberOfEnemyShips < 10)
+        while (gameManager.isGameRunning && gameManager.level == GameManager.Levels.Level2)
         {
+            yield return new WaitForSeconds(spawnInterval);
+            int randomIndex = Random.Range(0, enemyShipsPrefabs.Count);
+            Vector3 randomPosition = new(Random.Range(-200f, 200f), 0, player.transform.position.z + 400f);
             Instantiate(enemyShipsPrefabs[randomIndex], randomPosition, enemyShipsPrefabs[randomIndex].transform.rotation);
-            numberOfEnemyRocks++;
+            numberOfEnemyShips++;
+
+            if (numberOfEnemyShips == 10)
+            {
+                yield return new WaitForSeconds(5);
+                Debug.Log("Wave 2");
+                enemyWave = 2;
+            }
+            if (numberOfEnemyShips == 20)
+            {
+                yield return new WaitForSeconds(5);
+                Debug.Log("End of Level 2");
+                gameManager.level = GameManager.Levels.EndGame;
+                StopCoroutine(nameof(SpawnEnemyShips));
+                Debug.Log("End of Game");
+            }
         }
     }
 }
