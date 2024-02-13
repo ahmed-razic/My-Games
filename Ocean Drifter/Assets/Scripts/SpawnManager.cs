@@ -11,7 +11,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] float spawnInterval;
     [SerializeField] int numberOfEnemyRocks = 0;
     [SerializeField] int numberOfEnemyShips = 0;
-    [SerializeField] int enemyWave;
+    [SerializeField] int enemyWave = 0;
 
     GameObject player;
     GameManager gameManager;
@@ -21,7 +21,7 @@ public class SpawnManager : MonoBehaviour
     {
         player = GameObject.Find("Player");
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        enemyWave = 1;
+        enemyWave++;
         StartGame(1);
     }
 
