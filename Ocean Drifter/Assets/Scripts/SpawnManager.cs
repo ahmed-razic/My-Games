@@ -10,8 +10,8 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField] float spawnInterval;
     [SerializeField] int numberOfEnemyRocks = 0;
-    int numberOfEnemyShips = 0;
-    int enemyWave;
+    [SerializeField] int numberOfEnemyShips = 0;
+    [SerializeField] int enemyWave;
 
     GameObject player;
     GameManager gameManager;
@@ -21,17 +21,8 @@ public class SpawnManager : MonoBehaviour
     {
         player = GameObject.Find("Player");
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-
-
-        //InvokeRepeating(nameof(SpawnEnemyRocks), spawnDelay, spawnInterval);
-        //InvokeRepeating(nameof(SpawnEnemyShips), spawnDelay, spawnInterval);
+        enemyWave = 1;
         StartGame(1);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void StartGame(int difficulty)
@@ -41,10 +32,11 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnEnemyRocks(int difficulty)
     {
-        spawnInterval /= difficulty;
-        enemyWave = 1;
-
+        Debug.Log("Level 1 - Rocks");
         Debug.Log("Wave 1");
+
+        spawnInterval /= difficulty;
+
         while (gameManager.isGameRunning && gameManager.level == GameManager.Levels.Level1)
         {
             yield return new WaitForSeconds(spawnInterval);
@@ -59,7 +51,7 @@ public class SpawnManager : MonoBehaviour
                 Debug.Log("Wave 2");
                 enemyWave = 2;
             }
-            if (numberOfEnemyRocks == 20)
+            if (numberOfEnemyRocks == 30)
             {
                 yield return new WaitForSeconds(5);
                 Debug.Log("End of Level 1");
@@ -72,6 +64,9 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnEnemyShips(int difficulty)
     {
+        Debug.Log("Level 2 - Ships");
+        Debug.Log("Wave 1");
+
         spawnInterval /= difficulty;
         enemyWave = 1;
 
@@ -89,13 +84,13 @@ public class SpawnManager : MonoBehaviour
                 Debug.Log("Wave 2");
                 enemyWave = 2;
             }
-            if (numberOfEnemyShips == 20)
+            if (numberOfEnemyShips == 30)
             {
                 yield return new WaitForSeconds(5);
                 Debug.Log("End of Level 2");
                 gameManager.level = GameManager.Levels.EndGame;
-                StopCoroutine(nameof(SpawnEnemyShips));
                 Debug.Log("End of Game");
+                StopCoroutine(nameof(SpawnEnemyShips));
             }
         }
     }

@@ -692,6 +692,10 @@ MonoBehaviour:
   - {fileID: 6581168360086918971, guid: 68b78c0016df1d546973aeb4a8968fdb, type: 3}
   - {fileID: 8845138897800761667, guid: b9b7ab1a4ebf3a346b2da60fedad1a6c, type: 3}
   - {fileID: 8993685621164240266, guid: e6aa5a965f2df374bbbb3b63e859502e, type: 3}
+  spawnInterval: 1
+  numberOfEnemyRocks: 0
+  numberOfEnemyShips: 0
+  enemyWave: 0
 --- !u!4 &1527306914
 Transform:
   m_ObjectHideFlags: 0
