@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //Set ocean waves
-        SetOceanWaves();
+        //SetOceanWaves();
     }
 
 
@@ -43,11 +43,11 @@ public class GameManager : MonoBehaviour
     {
         if (waves == Waves.Calm)
         {
-            oceanWavesScript.SetOceanWaves(1f, 1f, 0.5f, new Vector3(0f, -20f, 0f));
+            oceanWavesScript.SetOceanWaves(1f, 1f, 0.5f, new Vector3(0f, -30f, -500f));
         }
         else if (waves == Waves.Rough)
         {
-            oceanWavesScript.SetOceanWaves(3f, 2f, 0.5f, new Vector3(0f, -20f, 0f));
+            oceanWavesScript.SetOceanWaves(3f, 2f, 0.5f, new Vector3(0f, -30f, -500f));
         }
     }
 }
