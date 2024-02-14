@@ -4,8 +4,8 @@ public class PlayerController : MonoBehaviour
 {
     float leftBorder = -200f;
     float rightBorder = 200f;
-    float topBorder = 0f;
-    float bottomBorder = -200f;
+    float topBorder = -200f;
+    float bottomBorder = -350f;
 
     public float forwardSpeed = 30.0f;
     public float rotateSpeed = 100.0f;
