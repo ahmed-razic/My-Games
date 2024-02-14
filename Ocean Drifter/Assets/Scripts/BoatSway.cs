@@ -13,7 +13,7 @@ public class BoatSway : MonoBehaviour
     }
     private void Update()
     {
-        if (gameManager.waves == GameManager.Waves.Calm)
+        if (gameManager.waves == GameManager.Waves.Calm && gameManager.isGameRunning)
         {
             maxAngle = 5;
             timer += Time.deltaTime;
@@ -21,7 +21,7 @@ public class BoatSway : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(angle, transform.Find("Player").transform.forward);
         }
 
-        else if (gameManager.waves == GameManager.Waves.Rough)
+        else if (gameManager.waves == GameManager.Waves.Rough && gameManager.isGameRunning)
         {
             maxAngle = 10;
             timer += Time.deltaTime;

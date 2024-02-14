@@ -15,7 +15,7 @@ public class DestroyOnImpact : MonoBehaviour
         boatSink = GameObject.Find("Player").GetComponent<BoatSink>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         player = GameObject.Find("Player");
-        
+
     }
 
     // Update is called once per frame
@@ -35,21 +35,26 @@ public class DestroyOnImpact : MonoBehaviour
             Destroy(gameObject);
             boatSink.isBoatHit = true;
             gameManager.lives -= 1;
-            StartCoroutine(RespawnPlayer());
+            if (gameManager.lives >= 1)
+            {
+                Debug.Log("IN COROUTINE");
+                StartCoroutine(RespawnPlayer());
+            }
+            else if (gameManager.lives == 0)
+            {
+                Destroy(other.gameObject);
+                gameManager.isGameRunning = false;
+            }            
         }
+
     }
 
     IEnumerator RespawnPlayer()
     {
-        yield return new WaitForSeconds(5);
-        if (gameManager.lives < 1)
-        {
-            Destroy(player);
-
-        } else
-        {
-            player.transform.position = player.GetComponent<PlayerController>().startingPosition; 
-        }
-        StopCoroutine(nameof(RespawnPlayer));
+        yield return new WaitForSeconds(3);
+        boatSink.isBoatHit = false;
+        player.transform.position = player.GetComponent<PlayerController>().startingPosition;
+        Debug.Log("IN RESPAWN");
+        //StopCoroutine(nameof(RespawnPlayer));
     }
 }

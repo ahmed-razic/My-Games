@@ -37,12 +37,12 @@ public class SpawnManager : MonoBehaviour
 
         spawnInterval /= difficulty;
 
-        while (gameManager.isGameRunning && gameManager.level == GameManager.Levels.Level1 && gameManager.lives > 0)
+        while (gameManager.isGameRunning && gameManager.level == GameManager.Levels.Level1)
         {
             yield return new WaitForSeconds(spawnInterval);
 
             int randomIndex = Random.Range(0, enemyRocksPrefabs.Count);
-            Vector3 randomPosition = new(Random.Range(-180f, 180f), Random.Range(200f, 300f), player.transform.position.z + 800f);
+            Vector3 randomPosition = new(Random.Range(-180f, 180f), Random.Range(200f, 300f), player.transform.position.z + 500f);
             Instantiate(enemyRocksPrefabs[randomIndex], randomPosition, enemyRocksPrefabs[randomIndex].transform.rotation);
             numberOfEnemyRocks++;
             if (numberOfEnemyRocks == 10)
@@ -70,11 +70,11 @@ public class SpawnManager : MonoBehaviour
         spawnInterval /= difficulty;
         enemyWave = 1;
 
-        while (gameManager.isGameRunning && gameManager.level == GameManager.Levels.Level2 && gameManager.lives > 0)
+        while (gameManager.isGameRunning && gameManager.level == GameManager.Levels.Level2)
         {
             yield return new WaitForSeconds(spawnInterval);
             int randomIndex = Random.Range(0, enemyShipsPrefabs.Count);
-            Vector3 randomPosition = new(Random.Range(-180f, 180f), 0, player.transform.position.z + 800f);
+            Vector3 randomPosition = new(Random.Range(-180f, 180f), 0, player.transform.position.z + 500f);
             Instantiate(enemyShipsPrefabs[randomIndex], randomPosition, enemyShipsPrefabs[randomIndex].transform.rotation);
             numberOfEnemyShips++;
 
