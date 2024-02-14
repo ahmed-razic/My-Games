@@ -42,7 +42,7 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
 
             int randomIndex = Random.Range(0, enemyRocksPrefabs.Count);
-            Vector3 randomPosition = new(Random.Range(-200f, 200f), Random.Range(200f, 300f), player.transform.position.z + 400f);
+            Vector3 randomPosition = new(Random.Range(-180f, 180f), Random.Range(200f, 300f), player.transform.position.z + 800f);
             Instantiate(enemyRocksPrefabs[randomIndex], randomPosition, enemyRocksPrefabs[randomIndex].transform.rotation);
             numberOfEnemyRocks++;
             if (numberOfEnemyRocks == 10)
@@ -74,7 +74,7 @@ public class SpawnManager : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnInterval);
             int randomIndex = Random.Range(0, enemyShipsPrefabs.Count);
-            Vector3 randomPosition = new(Random.Range(-200f, 200f), 0, player.transform.position.z + 400f);
+            Vector3 randomPosition = new(Random.Range(-180f, 180f), 0, player.transform.position.z + 800f);
             Instantiate(enemyShipsPrefabs[randomIndex], randomPosition, enemyShipsPrefabs[randomIndex].transform.rotation);
             numberOfEnemyShips++;
 
