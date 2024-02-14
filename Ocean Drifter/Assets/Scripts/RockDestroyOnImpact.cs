@@ -1,27 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Build;
 using UnityEngine;
 
-public class DestroyOnImpact : MonoBehaviour
+public class RockDestroyOnImpact : MonoBehaviour
 {
-    BoatSink boatSink;
+    SinkBoat sinkBoat;
     GameManager gameManager;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        boatSink = GameObject.Find("Player").GetComponent<BoatSink>();
+        sinkBoat = GameObject.Find("Player").GetComponent<SinkBoat>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,7 +22,7 @@ public class DestroyOnImpact : MonoBehaviour
         {
             Destroy(gameObject);
             gameManager.lives -= 1;
-            boatSink.isBoatHit = true;    
+            sinkBoat.isBoatHit = true;
         }
-    }    
+    }
 }

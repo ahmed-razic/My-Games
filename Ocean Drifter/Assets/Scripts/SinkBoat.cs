@@ -1,13 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
-public class BoatSink : MonoBehaviour
+public class SinkBoat : MonoBehaviour
 {
     public float sinkingSpeed = 10f;
     public bool isBoatHit = false;
     GameObject player;
     GameManager gameManager;
-
 
     private void Start()
     {
@@ -19,17 +18,23 @@ public class BoatSink : MonoBehaviour
     {
         if (isBoatHit)
         {
-            SinkBoat();
+            SinkAnyBoat();
         }
     }
-    public void SinkBoat()
+    public void SinkAnyBoat()
     {
         transform.Translate(sinkingSpeed * Time.deltaTime * Vector3.down);
+        if (gameObject.CompareTag("Ship"))
+        {
+            Destroy(gameObject, 3);
+        }
+
         if (gameManager.lives == 0)
         {
             Destroy(player, 4);
             gameManager.isGameRunning = false;
         }
+
         else
         {
             StartCoroutine(RepositionPlayer());
@@ -39,7 +44,10 @@ public class BoatSink : MonoBehaviour
     IEnumerator RepositionPlayer()
     {
         yield return new WaitForSeconds(4);
-        isBoatHit = false;
-        player.transform.position = player.GetComponent<PlayerController>().startingPosition;
+        if (gameObject.CompareTag("Player"))
+        {
+            isBoatHit = false;
+            player.transform.position = player.GetComponent<PlayerController>().startingPosition;
+        }
     }
 }

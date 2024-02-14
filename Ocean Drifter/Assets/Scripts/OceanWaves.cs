@@ -10,12 +10,6 @@ public class OceanWaves : MonoBehaviour
         ocean = GetComponent<LowPolyWater.LowPolyWater>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void SetOceanWaves(float waveHeight, float waveFrequency, float waveLength, Vector3 waveOrigin)
     {
         ocean.waveHeight = waveHeight;

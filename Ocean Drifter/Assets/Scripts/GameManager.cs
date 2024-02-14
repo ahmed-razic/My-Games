@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
         Calm,
         Rough
     }
-
     public enum Levels
     {
         Level1,
@@ -41,7 +40,6 @@ public class GameManager : MonoBehaviour
         //Set ocean waves
         SetOceanWaves();
     }
-
 
     void SetOceanWaves()
     {

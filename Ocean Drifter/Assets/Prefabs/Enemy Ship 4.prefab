@@ -13,9 +13,12 @@ GameObject:
   - component: {fileID: 6600906740567853080}
   - component: {fileID: 7676864827214101331}
   - component: {fileID: 425588139011168860}
+  - component: {fileID: 817340529926166898}
+  - component: {fileID: -5614336802961720127}
+  - component: {fileID: -639957903755602035}
   m_Layer: 0
   m_Name: Enemy Ship 4
-  m_TagString: Untagged
+  m_TagString: Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +112,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e27795250378fb4f9090048f20eb04d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &817340529926166898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6581168360086918971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baefceb44efc4754b9ad7c0d4b5033a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &-5614336802961720127
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6581168360086918971}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15.723281, y: 65.41275, z: 89.48525}
+  m_Center: {x: 0, y: 28.715054, z: -8.546547}
+--- !u!114 &-639957903755602035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6581168360086918971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b700794c04f1e4d8609a24dc6a96e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sinkingSpeed: 30
+  isBoatHit: 0

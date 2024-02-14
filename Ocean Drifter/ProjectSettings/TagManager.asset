@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Rock
   - Ocean
+  - Ship
   layers:
   - Default
   - TransparentFX
