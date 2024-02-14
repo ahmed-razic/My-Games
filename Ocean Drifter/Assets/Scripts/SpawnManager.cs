@@ -45,13 +45,13 @@ public class SpawnManager : MonoBehaviour
             Vector3 randomPosition = new(Random.Range(-180f, 180f), Random.Range(200f, 300f), player.transform.position.z + 500f);
             Instantiate(enemyRocksPrefabs[randomIndex], randomPosition, enemyRocksPrefabs[randomIndex].transform.rotation);
             numberOfEnemyRocks++;
-            if (numberOfEnemyRocks == 10)
+            if (numberOfEnemyRocks == 100)
             {
                 yield return new WaitForSeconds(5);
                 Debug.Log("Wave 2");
                 enemyWave = 2;
             }
-            if (numberOfEnemyRocks == 30)
+            else if (numberOfEnemyRocks == 200)
             {
                 yield return new WaitForSeconds(5);
                 Debug.Log("End of Level 1");
@@ -84,7 +84,7 @@ public class SpawnManager : MonoBehaviour
                 Debug.Log("Wave 2");
                 enemyWave = 2;
             }
-            if (numberOfEnemyShips == 30)
+            else if (numberOfEnemyShips == 30)
             {
                 yield return new WaitForSeconds(5);
                 Debug.Log("End of Level 2");
