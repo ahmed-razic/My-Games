@@ -22,7 +22,7 @@ public class DestroyOnImpact : MonoBehaviour
     {
         if (other.CompareTag("Ocean"))
         {
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, 1f);
         }
         if (other.CompareTag("Player"))
         {
