@@ -6,12 +6,10 @@ public class BoatSway : MonoBehaviour
     int maxAngle;
 
     GameManager gameManager;
-    GameObject player;
 
     private void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        player = GameObject.Find("Player");
     }
     private void Update()
     {
@@ -20,7 +18,7 @@ public class BoatSway : MonoBehaviour
             maxAngle = 5;
             timer += Time.deltaTime;
             float angle = Mathf.Sin(timer) * maxAngle;
-            transform.rotation = Quaternion.AngleAxis(angle, player.transform.forward);
+            transform.rotation = Quaternion.AngleAxis(angle, transform.Find("Player").transform.forward);
         }
 
         else if (gameManager.waves == GameManager.Waves.Rough)
@@ -28,7 +26,7 @@ public class BoatSway : MonoBehaviour
             maxAngle = 10;
             timer += Time.deltaTime;
             float angle = Mathf.Sin(timer) * maxAngle;
-            transform.rotation = Quaternion.AngleAxis(angle, player.transform.right);
+            transform.rotation = Quaternion.AngleAxis(angle, transform.Find("Player").transform.right);
         }
     }    /*
     public IEnumerator Calm()

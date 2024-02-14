@@ -4,8 +4,8 @@ public class PlayerController : MonoBehaviour
 {
     float leftBorder = -200f;
     float rightBorder = 200f;
-    float topBorder = -250f;
-    float bottomBorder = -450f;
+    float topBorder = 0f;
+    float bottomBorder = -200f;
 
     public float forwardSpeed = 30.0f;
     public float rotateSpeed = 100.0f;
@@ -27,7 +27,8 @@ public class PlayerController : MonoBehaviour
         transform.position += verticalInput * forwardSpeed * Time.deltaTime * transform.forward; // This is much better
         transform.Rotate(horizontalInput * rotateSpeed * Time.deltaTime * Vector3.up);
 
-        if(transform.position.x < leftBorder)
+        //Limit movement of player
+        if (transform.position.x < leftBorder)
         {
             transform.position = new Vector3(leftBorder, transform.position.y, transform.position.z);
         }
@@ -45,5 +46,3 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
-
-

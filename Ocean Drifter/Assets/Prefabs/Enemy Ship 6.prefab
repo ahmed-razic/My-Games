@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4963173370716289737}
   - component: {fileID: 8692269272485755035}
   - component: {fileID: 5147891468062533782}
-  - component: {fileID: -2715060513054493865}
   m_Layer: 0
   m_Name: Enemy Ship 6
   m_TagString: Untagged
@@ -97,16 +96,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec8f744ce2b8bf4bbd714a7147f2dfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-2715060513054493865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8993685621164240266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b700794c04f1e4d8609a24dc6a96e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sinkingSpeed: 1

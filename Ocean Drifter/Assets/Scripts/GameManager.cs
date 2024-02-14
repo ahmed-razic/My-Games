@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //Set ocean waves
-        //SetOceanWaves();
+        SetOceanWaves();
     }
 
 
