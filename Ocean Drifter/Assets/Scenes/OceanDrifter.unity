@@ -309,6 +309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGameRunning: 0
+  score: 0
+  lives: 3
   level: 1
   waves: 0
 --- !u!4 &151607819
@@ -4777,6 +4779,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5233617626810757948, guid: 8743b004155980444afe46aa6d2b0018, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1908791897}
+    - targetCorrespondingSourceObject: {fileID: 5233617626810757948, guid: 8743b004155980444afe46aa6d2b0018, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1908791901}
   m_SourcePrefab: {fileID: 100100000, guid: 8743b004155980444afe46aa6d2b0018, type: 3}
 --- !u!4 &1908791895 stripped
 Transform:
@@ -4800,7 +4805,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b700794c04f1e4d8609a24dc6a96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sinkingSpeed: 1
+  sinkingSpeed: 10
+  isBoatHit: 0
 --- !u!114 &1908791898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4813,8 +4819,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b8f8f861ff3ce4cb3ecee7f5e2f0c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPosition: {x: 0, y: 0, z: 0}
   forwardSpeed: 50
   rotateSpeed: 100
+--- !u!65 &1908791901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908791896}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 41.969753, y: 7.389875, z: 24.133854}
+  m_Center: {x: -2.5155885, y: 3.6128156, z: 8.125191}
 --- !u!1001 &1910367556
 PrefabInstance:
   m_ObjectHideFlags: 0

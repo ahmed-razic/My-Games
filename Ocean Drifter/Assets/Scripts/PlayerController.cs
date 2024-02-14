@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     float rightBorder = 200f;
     float topBorder = -200f;
     float bottomBorder = -350f;
+    public Vector3 startingPosition;
 
     public float forwardSpeed = 30.0f;
     public float rotateSpeed = 100.0f;
@@ -15,7 +16,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        startingPosition = transform.position;
     }
 
     // Update is called once per frame

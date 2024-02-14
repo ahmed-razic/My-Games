@@ -37,7 +37,7 @@ public class SpawnManager : MonoBehaviour
 
         spawnInterval /= difficulty;
 
-        while (gameManager.isGameRunning && gameManager.level == GameManager.Levels.Level1)
+        while (gameManager.isGameRunning && gameManager.level == GameManager.Levels.Level1 && gameManager.lives > 0)
         {
             yield return new WaitForSeconds(spawnInterval);
 
@@ -70,7 +70,7 @@ public class SpawnManager : MonoBehaviour
         spawnInterval /= difficulty;
         enemyWave = 1;
 
-        while (gameManager.isGameRunning && gameManager.level == GameManager.Levels.Level2)
+        while (gameManager.isGameRunning && gameManager.level == GameManager.Levels.Level2 && gameManager.lives > 0)
         {
             yield return new WaitForSeconds(spawnInterval);
             int randomIndex = Random.Range(0, enemyShipsPrefabs.Count);

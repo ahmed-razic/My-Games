@@ -3,6 +3,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool isGameRunning;
+    public int score;
+    public int lives;
     public Levels level;
     public Waves waves;
     OceanWaves oceanWavesScript;
@@ -24,6 +26,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
+        lives = 3;
         isGameRunning = true;
         level = Levels.Level1;
         waves = Waves.Calm;
