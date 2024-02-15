@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     public List<GameObject> enemyRocksPrefabs;
     public List<GameObject> enemyShipsPrefabs;
 
-    [SerializeField] float spawnInterval = 5f;
+    [SerializeField] float spawnInterval = 8f;
     [SerializeField] int numberOfEnemyRocks = 0;
     [SerializeField] int numberOfEnemyShips = 0;
     [SerializeField] int enemyWave = 0;

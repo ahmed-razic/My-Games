@@ -18,7 +18,7 @@ public class ShipDestroyOnImpact : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.lives -= 1;
+            gameManager.LooseLife();
             sinkBoat.isBoatHit = true;
             sinkShip.isBoatHit = true;
             if (gameManager.lives == 0)

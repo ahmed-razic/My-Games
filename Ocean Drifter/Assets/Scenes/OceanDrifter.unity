@@ -1076,6 +1076,8 @@ MonoBehaviour:
   startScreenCanvas: {fileID: 1021132191}
   endScreenCanvas: {fileID: 716429593}
   inGameCanvas: {fileID: 2003225836}
+  scoreText: {fileID: 1151259732}
+  livesText: {fileID: 389714727}
 --- !u!4 &151607819
 Transform:
   m_ObjectHideFlags: 0
@@ -6832,7 +6834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f0a0b5109fe4f4f813e0360079c25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 3
+  difficulty: 4
 --- !u!1 &1021132188
 GameObject:
   m_ObjectHideFlags: 0
@@ -12955,7 +12957,7 @@ SceneRoots:
   - {fileID: 1589923447}
   - {fileID: 732874555}
   - {fileID: 675719243}
-  - {fileID: 2003225837}
   - {fileID: 1021132192}
-  - {fileID: 1232209686}
+  - {fileID: 2003225837}
   - {fileID: 716429594}
+  - {fileID: 1232209686}

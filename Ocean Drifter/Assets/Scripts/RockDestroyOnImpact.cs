@@ -21,7 +21,7 @@ public class RockDestroyOnImpact : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
-            gameManager.lives -= 1;
+            gameManager.LooseLife();
             sinkBoat.isBoatHit = true;
             if(gameManager.lives == 0)
             {

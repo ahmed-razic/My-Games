@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,9 @@ public class GameManager : MonoBehaviour
     public Canvas startScreenCanvas;
     public Canvas endScreenCanvas;
     public Canvas inGameCanvas;
+
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI livesText;
 
     public enum Waves
     {
@@ -78,5 +82,17 @@ public class GameManager : MonoBehaviour
     public void RestartScene()
     {
         SceneManager.LoadScene("OceanDrifter");
+    }
+
+    public void AddScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+        scoreText.SetText("Score: " + score);
+    }
+
+    public void LooseLife()
+    {
+        lives -= 1;
+        livesText.SetText("Lives: " + lives);
     }
 }
