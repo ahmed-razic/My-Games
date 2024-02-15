@@ -6570,6 +6570,7 @@ GameObject:
   - component: {fileID: 1005185867}
   - component: {fileID: 1005185866}
   - component: {fileID: 1005185865}
+  - component: {fileID: 1005185868}
   m_Layer: 5
   m_Name: Hard Button
   m_TagString: Untagged
@@ -6679,6 +6680,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005185863}
   m_CullTransparentMesh: 1
+--- !u!114 &1005185868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005185863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f0a0b5109fe4f4f813e0360079c25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulty: 2
 --- !u!1 &1021132188
 GameObject:
   m_ObjectHideFlags: 0
@@ -10153,6 +10167,7 @@ GameObject:
   - component: {fileID: 1754375597}
   - component: {fileID: 1754375596}
   - component: {fileID: 1754375595}
+  - component: {fileID: 1754375598}
   m_Layer: 5
   m_Name: Easy Button
   m_TagString: Untagged
@@ -10262,6 +10277,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754375593}
   m_CullTransparentMesh: 1
+--- !u!114 &1754375598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754375593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f0a0b5109fe4f4f813e0360079c25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulty: 1
 --- !u!1001 &1783204085
 PrefabInstance:
   m_ObjectHideFlags: 0

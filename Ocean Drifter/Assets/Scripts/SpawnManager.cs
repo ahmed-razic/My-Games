@@ -21,15 +21,15 @@ public class SpawnManager : MonoBehaviour
         player = GameObject.Find("Player");
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         enemyWave++;
-        StartGame(1);
+        //StartGame(1);
     }
 
-    public void StartGame(int difficulty)
-    {
-        StartCoroutine(SpawnEnemyRocks(difficulty));
-    }
+    //public void StartGame(int difficulty)
+    //{
+    //    StartCoroutine(SpawnEnemyRocks(difficulty));
+    //}
 
-    IEnumerator SpawnEnemyRocks(int difficulty)
+    public IEnumerator SpawnEnemyRocks(int difficulty)
     {
         Debug.Log("Level 1 - Rocks");
         Debug.Log("Wave 1");

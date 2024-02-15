@@ -52,4 +52,10 @@ public class GameManager : MonoBehaviour
             oceanWavesScript.SetOceanWaves(3f, 2f, 0.5f, new Vector3(0f, -30f, 0f));
         }
     }
+
+    public void StartGame(int difficulty)
+    {
+        //spawnManager.StartGame(difficulty);
+        spawnManager.StartCoroutine(spawnManager.SpawnEnemyRocks(difficulty));
+    }
 }
