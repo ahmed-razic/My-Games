@@ -21,7 +21,7 @@ public class ShipDestroyOnImpact : MonoBehaviour
             gameManager.lives -= 1;
             sinkBoat.isBoatHit = true;
             sinkShip.isBoatHit = true;
-            if (gameManager.lives < 1)
+            if (gameManager.lives == 0)
             {
                 gameManager.EndGame();
             }

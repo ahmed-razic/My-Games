@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         lives = 3;
         isGameRunning = true;
+        endScreenCanvas.enabled = false;
         startScreenCanvas.enabled = false;
         inGameCanvas.enabled = true;
         spawnManager.StartCoroutine(spawnManager.SpawnEnemyRocks(difficulty));

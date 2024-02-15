@@ -23,6 +23,10 @@ public class RockDestroyOnImpact : MonoBehaviour
             Destroy(gameObject);
             gameManager.lives -= 1;
             sinkBoat.isBoatHit = true;
+            if(gameManager.lives == 0)
+            {
+                gameManager.EndGame();
+            }
         }
     }
 }
