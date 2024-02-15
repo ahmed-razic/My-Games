@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     OceanWaves oceanWavesScript;
     SpawnManager spawnManager;
 
+    public Canvas startScreenCanvas;
+    public Canvas endScreenCanvas;
+    public Canvas inGameCanvas;
+
     public enum Waves
     {
         Calm,
@@ -25,13 +29,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
-        lives = 3;
-        isGameRunning = true;
+        
         level = Levels.Level1;
         waves = Waves.Calm;
         oceanWavesScript = GameObject.Find("Ocean").GetComponent<OceanWaves>();
         spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
+
     }
 
     // Update is called once per frame
@@ -55,7 +58,18 @@ public class GameManager : MonoBehaviour
 
     public void StartGame(int difficulty)
     {
-        //spawnManager.StartGame(difficulty);
+        score = 0;
+        lives = 3;
+        isGameRunning = true;
+        startScreenCanvas.enabled = false;
+        inGameCanvas.enabled = true;
         spawnManager.StartCoroutine(spawnManager.SpawnEnemyRocks(difficulty));
+
+    }
+
+    public void EndGame()
+    {
+        isGameRunning = false;
+        endScreenCanvas.enabled = true;
     }
 }
