@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,13 +29,11 @@ public class GameManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        
+    {        
         level = Levels.Level1;
         waves = Waves.Calm;
         oceanWavesScript = GameObject.Find("Ocean").GetComponent<OceanWaves>();
         spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
-
     }
 
     // Update is called once per frame
@@ -61,16 +60,23 @@ public class GameManager : MonoBehaviour
         score = 0;
         lives = 3;
         isGameRunning = true;
-        endScreenCanvas.enabled = false;
-        startScreenCanvas.enabled = false;
-        inGameCanvas.enabled = true;
+
+        endScreenCanvas.gameObject.SetActive(false);
+        startScreenCanvas.gameObject.SetActive(false);
+        inGameCanvas.gameObject.SetActive(true);
+
         spawnManager.StartCoroutine(spawnManager.SpawnEnemyRocks(difficulty));
 
     }
 
     public void EndGame()
     {
+        endScreenCanvas.gameObject.SetActive(true);
         isGameRunning = false;
-        endScreenCanvas.enabled = true;
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene("OceanDrifter");
     }
 }

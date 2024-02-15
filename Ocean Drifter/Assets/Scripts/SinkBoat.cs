@@ -29,7 +29,7 @@ public class SinkBoat : MonoBehaviour
             Destroy(gameObject, 3);
         }
 
-        if (gameManager.lives == 0)
+        else if (gameManager.lives == 0)
         {
             Destroy(player, 4);
             gameManager.EndGame();

@@ -89,6 +89,7 @@ public class SpawnManager : MonoBehaviour
                 Debug.Log("End of Level 2");
                 gameManager.level = GameManager.Levels.EndGame;
                 Debug.Log("End of Game");
+                gameManager.EndGame();
                 StopCoroutine(nameof(SpawnEnemyShips));
             }
         }
