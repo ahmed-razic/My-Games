@@ -56,7 +56,8 @@ public class PlayerController : MonoBehaviour
             if (pooledProjectile != null)
             {
                 pooledProjectile.SetActive(true); // activate it
-                pooledProjectile.transform.position = transform.position + new Vector3(0, 1, 6); // position it at player
+                pooledProjectile.transform.forward = transform.forward;
+                pooledProjectile.transform.position = transform.position + new Vector3(0, 5, 20); // position it at player
             }
         }
     }

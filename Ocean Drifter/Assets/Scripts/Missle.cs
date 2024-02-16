@@ -17,6 +17,10 @@ public class Missle : MonoBehaviour
     void Update()
     {
         transform.position += forwardSpeed * Time.deltaTime * transform.forward;
+        if(transform.position.z > 600)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

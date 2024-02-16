@@ -21,5 +21,9 @@ public class EnemyRock : MonoBehaviour
     {
         body.AddForce(randomForce * transform.forward, ForceMode.Impulse);
         transform.Rotate(Vector3.right, rotateSpeed * Time.deltaTime);
+        if(transform.position.y < -300)
+        {
+            Destroy(gameObject);
+        }
     }
 }
